@@ -14,7 +14,7 @@
     <input
         type="number"
         bind:value={count}
-        class="border rounded p-3"
+        class="border border-black rounded p-3"
         disabled
     />
     <button
