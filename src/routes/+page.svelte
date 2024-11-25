@@ -1,5 +1,6 @@
 <script>
     import Counter from "../Components/Counter/Counter.svelte";
+    import FlightBooker from "../Components/Flight Booker/FlightBooker.svelte";
     import TemperatureConverter from "../Components/Temperature Converter/TemperatureConverter.svelte";
 </script>
 
@@ -9,4 +10,5 @@
 <div class="space-y-5">
     <Counter />
     <TemperatureConverter />
+    <FlightBooker />
 </div>
