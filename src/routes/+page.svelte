@@ -16,4 +16,5 @@
         >Temperature Converter</a
     >
     <a href="/flightBooker" class="text-white font-bold">Flight Booker</a>
+    <a href="/timer" class="text-white font-bold">Timer</a>
 </div>
