@@ -1,7 +1,7 @@
 <script lang="ts">
     class Temperature {
         #c = $state(0);
-        #f = $state(0);
+        #f = $state(32);
 
         get c() {
             return this.#c;
@@ -24,23 +24,26 @@
     const temperature = new Temperature();
 </script>
 
-<h2 class="text-center text-xl font-bold text-red-500 my-5">
-    Temperature Converter
-</h2>
-<div
-    class="flex justify-center items-center gap-3 border-2 rounded-lg w-[34%] mx-auto p-6 bg-gray-100"
->
-    <input
-        type="number"
-        class="border-2 border-red-600 rounded p-3"
-        bind:value={temperature.c}
-    />
-    <p class="text-lg font-semibold">Celsius</p>
-    =
-    <input
-        type="number"
-        class="border-2 border-blue-600 rounded p-3"
-        bind:value={temperature.f}
-    />
-    <p class="text-lg font-semibold">Fahrenheit</p>
+<div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <h2 class="text-xl font-semibold text-gray-800 mb-4">
+        Temperature Converter
+    </h2>
+
+    <div class="flex items-center gap-4 p-6 bg-white rounded-lg shadow-md">
+        <input
+            type="number"
+            class="w-20 px-3 py-2 text-center border border-gray-300 rounded-lg bg-gray-50 focus:outline-none focus:ring-2 focus:ring-red-500"
+            bind:value={temperature.c}
+        />
+        <p class="text-sm text-gray-700">Celsius</p>
+
+        <span class="text-gray-500">=</span>
+
+        <input
+            type="number"
+            class="w-20 px-3 py-2 text-center border border-gray-300 rounded-lg bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            bind:value={temperature.f}
+        />
+        <p class="text-sm text-gray-700">Fahrenheit</p>
+    </div>
 </div>

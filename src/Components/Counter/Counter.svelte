@@ -1,24 +1,30 @@
 <script lang="ts">
     let count: number = $state(0);
-    // let count = 0;
 </script>
 
-<h2 class="text-center text-xl font-bold text-red-500 my-5">Counter</h2>
-<div
-    class="flex justify-center items-center gap-3 border-2 rounded-lg w-[20%] mx-auto p-7 bg-gray-100"
->
-    <button
-        onclick={() => count--}
-        class="border rounded p-3 bg-red-600 text-white">Down</button
-    >
-    <input
-        type="number"
-        bind:value={count}
-        class="border border-black rounded p-3"
-        disabled
-    />
-    <button
-        onclick={() => count++}
-        class="border rounded p-3 bg-green-600 text-white">Up</button
-    >
+<div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <h2 class="text-xl font-semibold text-gray-800 mb-4">Counter</h2>
+
+    <div class="flex items-center gap-4 p-4 bg-white rounded-lg shadow-md">
+        <button
+            onclick={() => count--}
+            class="px-4 py-2 bg-red-500 text-white font-medium rounded-lg shadow hover:bg-red-600 transition"
+        >
+            Down
+        </button>
+
+        <input
+            type="number"
+            bind:value={count}
+            disabled
+            class="w-16 text-center border border-gray-300 rounded-lg p-2 bg-gray-50"
+        />
+
+        <button
+            onclick={() => count++}
+            class="px-4 py-2 bg-green-500 text-white font-medium rounded-lg shadow hover:bg-green-600 transition"
+        >
+            Up
+        </button>
+    </div>
 </div>

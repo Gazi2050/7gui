@@ -1,20 +1,27 @@
 <script>
-    import FlightBooker from "../Components/Flight Booker/FlightBooker.svelte";
-    import TemperatureConverter from "../Components/Temperature Converter/TemperatureConverter.svelte";
+    const links = [
+        { name: "Counter", path: "/counter" },
+        { name: "Temperature Converter", path: "/temperatureConverter" },
+        { name: "Flight Booker", path: "/flightBooker" },
+        { name: "Timer", path: "/timer" },
+    ];
 </script>
 
-<h1 class="text-center text-3xl font-bold text-red-500 my-5">
-    7 GUIs (Graphical User Interface)
-</h1>
-<div
-    class="bg-zinc-400 shadow-md rounded-full max-w-6xl mx-auto mt-4 p-3 px-6 flex justify-between items-center"
->
-    <!-- Navigation Links -->
+<div class="flex justify-center items-center h-screen w-full bg-gray-100">
+    <div class="text-center">
+        <h1 class="text-3xl font-bold text-red-500 my-5">
+            7 GUIs (Graphical User Interface)
+        </h1>
 
-    <a href="/counter" class="text-white font-bold">Counter</a>
-    <a href="/temperatureConverter" class="text-white font-bold"
-        >Temperature Converter</a
-    >
-    <a href="/flightBooker" class="text-white font-bold">Flight Booker</a>
-    <a href="/timer" class="text-white font-bold">Timer</a>
+        <div class="flex flex-wrap gap-4 justify-center">
+            {#each links as link}
+                <a
+                    href={link.path}
+                    class="px-6 py-2 bg-gray-900 text-white font-medium rounded-lg shadow hover:bg-gray-800 transition"
+                >
+                    {link.name}
+                </a>
+            {/each}
+        </div>
+    </div>
 </div>
