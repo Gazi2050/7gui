@@ -4,6 +4,7 @@
         { name: "Temperature Converter", path: "/temperatureConverter" },
         { name: "Flight Booker", path: "/flightBooker" },
         { name: "Timer", path: "/timer" },
+        { name: "CRUD", path: "/crud" },
     ];
 </script>
 

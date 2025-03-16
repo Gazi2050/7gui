@@ -29,6 +29,9 @@
 
 <div class="flex items-center justify-center min-h-screen bg-gray-100">
     <div class="w-full max-w-sm p-6 bg-white rounded-2xl shadow-md">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4 text-center">
+            Timer
+        </h2>
         <div>
             <label
                 for="elapsed"
