@@ -5,6 +5,7 @@
         { name: "Flight Booker", path: "/flightBooker" },
         { name: "Timer", path: "/timer" },
         { name: "CRUD", path: "/crud" },
+        { name: "Circle Drawer", path: "/circledrawer" },
     ];
 </script>
 
