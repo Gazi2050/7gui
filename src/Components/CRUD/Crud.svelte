@@ -4,7 +4,7 @@
         surname: string;
     };
 
-    const people = $state([
+    let people = $state([
         { name: "Liam", surname: "Anderson" },
         { name: "Olivia", surname: "Brown" },
         { name: "Noah", surname: "Clark" },
@@ -19,6 +19,38 @@
 
     let selected = $state<Person>();
     let person = $state({ name: "", surname: "" });
+    let prefix = $state("");
+    const filteredPeople = $derived(
+        prefix
+            ? people.filter((p) => p.surname.toLowerCase().startsWith(prefix))
+            : people,
+    );
+
+    $effect(() => {
+        person = {
+            name: selected?.name ?? "",
+            surname: selected?.surname ?? "",
+        };
+    });
+
+    function createPerson() {
+        people.push(person);
+        clearFields();
+    }
+    function updatePerson() {
+        const index = people.indexOf(selected!);
+        people[index] = { name: person.name, surname: person.surname };
+    }
+    function deletePerson() {
+        people = people.filter(
+            (p) => p.name !== person.name || p.surname !== person.surname,
+        );
+        clearFields();
+    }
+
+    function clearFields() {
+        person = { name: "", surname: "" };
+    }
 </script>
 
 <div
@@ -36,6 +68,7 @@
                 type="text"
                 class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 placeholder="Type to filter..."
+                bind:value={prefix}
             />
         </div>
 
@@ -49,7 +82,7 @@
                 size="3"
                 class="w-full p-3 border border-gray-300 rounded-lg bg-white shadow-sm text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none cursor-pointer"
             >
-                {#each people as person}
+                {#each filteredPeople as person}
                     <option
                         value={person}
                         class="p-2 text-gray-700 hover:bg-gray-100 cursor-pointer rounded-md"
@@ -88,15 +121,15 @@
         <div class="flex justify-between">
             <button
                 class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition"
-                >Create</button
+                onclick={createPerson}>Create</button
             >
             <button
                 class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
-                >Update</button
+                onclick={updatePerson}>Update</button
             >
             <button
                 class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition"
-                >Delete</button
+                onclick={deletePerson}>Delete</button
             >
         </div>
     </div>
