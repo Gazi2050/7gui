@@ -6,6 +6,7 @@
         { name: "Timer", path: "/timer" },
         { name: "CRUD", path: "/crud" },
         { name: "Circle Drawer", path: "/circledrawer" },
+        { name: "Cells", path: "/cells" },
     ];
 </script>
 
