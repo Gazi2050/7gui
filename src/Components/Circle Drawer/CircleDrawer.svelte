@@ -68,7 +68,7 @@
 
     function handleSizeChange() {
         snapshot();
-        status = "drawing"; // Exit editing mode
+        status = "drawing";
     }
 
     function deselect() {
